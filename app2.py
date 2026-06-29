@@ -2,7 +2,8 @@ import streamlit as st
 import google.generativeai as genai
 
 # ------------- Configure Gemini API -------------
-genai.configure(api_key="AIzaSyDtxBhFPE0jkb_Jab9ThC362WPA5922pqE")
+import os
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 model = genai.GenerativeModel('gemini-2.5-flash')
 
 if "sessions" not in st.session_state:
